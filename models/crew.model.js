@@ -1,13 +1,13 @@
 module.exports = (sequelize, Sequelize) => {
   const Crew = sequelize.define("crew", {
     tconst: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING(1000)
     },
     directors: {
-      type: Sequelize.STRING
+      type: Sequelize.TEXT
     },
     writers: {
-      type: Sequelize.STRING
+      type: Sequelize.TEXT
     }
   });
 

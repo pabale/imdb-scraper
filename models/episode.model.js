@@ -1,16 +1,16 @@
 module.exports = (sequelize, Sequelize) => {
   const Episode = sequelize.define("episode", {
     tconst: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING(500)
     },
     parentTconst: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING(500)
     },
     seasonNumber: {
-      type: Sequelize.INTEGER
+      type: Sequelize.STRING(500)
     },
     episodeNumber: {
-      type: Sequelize.INTEGER
+      type: Sequelize.STRING(500)
     }
   });
 

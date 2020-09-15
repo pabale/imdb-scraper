@@ -2,22 +2,22 @@
 module.exports = (sequelize, Sequelize) => {
   const NameBasic = sequelize.define("name_basics", {
     nconst: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING(500)
     },
     primaryName: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING(1000)
     },
     birthYear: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING(100)
     },
     deathYear: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING(100)
     },
     primaryProfession: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING(2000)
     },
     knownForTitles: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING(2000)
     }
   });
 

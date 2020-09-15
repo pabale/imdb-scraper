@@ -27,5 +27,37 @@ for(var k=251;k<=6787;k=k+250){
 }
 
 
+   
 
 
+
+
+
+  var stream;
+  var file = './tsvfile/title.principals.tsv';
+  var linesCount = 0;
+  var i=1;
+  
+  var rl = readline.createInterface({
+      input: fs.createReadStream(file),
+      output: process.stdout,
+      terminal: false
+  });
+
+  var stream = fs.createWriteStream("copy1.txt");
+  rl.on('line', function (line) {
+      linesCount++; // on each linebreak, add +1 to 'linesCount'
+      
+      if(linesCount==10000) {
+        stream.write(line);
+        i++;
+        stream.end();
+        var stream = fs.createWriteStream("copy"+i+".txt");
+      }else{
+        stream.write(line);  
+      }
+  });
+  rl.on('close', function () {
+    stream.end();
+    
+  });

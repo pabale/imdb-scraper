@@ -2,31 +2,31 @@
 module.exports = (sequelize, Sequelize) => {
   const Titleakas = sequelize.define("title_akas", {
     titleId: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING(1000)
     },
     ordering: {
-      type: Sequelize.INTEGER
+      type: Sequelize.STRING(1000)
     },
     title: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING(1000)
     },
     region: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING(1000)
     },
     language: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING(1000)
     },
     types: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING(1000)
     },
     runtimeMinutes: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING(1000)
     },
     attributes: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING(1000)
     },
     isOriginalTitle: {
-      type: Sequelize.BOOLEAN
+      type: Sequelize.STRING(1000)
     }
   });
 

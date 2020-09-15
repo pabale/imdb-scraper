@@ -5,9 +5,9 @@ module.exports = {
   DB: "imdb_scrapper",
   dialect: "mysql",
   pool: {
-    max: 5,
+    max: 1000,
     min: 0,
-    acquire: 30000,
+    acquire: 300000,
     idle: 10000
   }
 };
