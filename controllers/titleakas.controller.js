@@ -40,14 +40,14 @@ function insert_titleakas_data(filename) {
 
 		  
 
-		  if(lineno%200000 == 0){
+		  if(lineno%50000==0){
 		    Titleakas.bulkCreate(dataArray);
 		    //dataArray = [];
 		    lr.pause();	   
 		  	setTimeout(function () {
 		  	  dataArray = [];
 		      lr.resume();
-		  	}, 40000);
+		  	}, 20000);
 		 }
 	});
 

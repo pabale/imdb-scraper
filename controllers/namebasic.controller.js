@@ -36,14 +36,14 @@ function insert_name_basic(filename) {
 
 	if(lineno!=1) dataArray.push(namebasic);
 
-	if(lineno%200000 == 0){
+	if(lineno%50000 == 0){
 	    Namebasic.bulkCreate(dataArray);
 	    //dataArray = [];
 	    lr.pause();	   
 	  	setTimeout(function () {
 	  	  dataArray = [];
 	      lr.resume();
-	  	}, 40000);
+	  	}, 20000);
 	 }
 
 		/*if(lineno%100000 == 0) {	   

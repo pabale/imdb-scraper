@@ -32,16 +32,16 @@ function insert_episode_data(filename) {
 
   
 
-	 if(lineno!=1) dataArray.push(episode);
+	if(lineno!=1) dataArray.push(episode);
 
-	if(lineno%200000 == 0){
+	if(lineno%50000 == 0){
 	    Episode.bulkCreate(dataArray);
 	    
 	    lr.pause();	   
 	  	setTimeout(function () {
 	  	  dataArray = [];
 	      lr.resume();
-	  	}, 40000);
+	  	}, 20000);
 	 }
 
 		/*if(lineno%100000 == 0) {	   

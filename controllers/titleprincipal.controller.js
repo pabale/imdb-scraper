@@ -36,7 +36,7 @@ function insert_title_principal_data(filename) {
 
 		 if(lineno!=1) dataArray.push(titleprincipal);
 
-		  if(lineno%100000 == 0){
+		  if(lineno%50000 == 0){
 
 		    Titleprincipal.bulkCreate(dataArray);
 		   
