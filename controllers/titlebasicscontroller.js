@@ -36,7 +36,7 @@ function insert_titlebasic_data(filename) {
 
 	  if(lineno!=1) dataArray.push(basics);
 
-	  if(lineno%100000==0) {
+	  if(lineno%50000==0) {
 	    Basics.bulkCreate(dataArray);
 	    
 	    lr.pause();
