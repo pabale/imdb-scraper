@@ -34,7 +34,7 @@ function insert_crew_data(filename) {
 
 		  
 
-		  if(lineno%200000 == 0){
+		  if(lineno%100000 == 0){
 		    Crew.bulkCreate(dataArray);
 		    //dataArray = [];
 		    lr.pause();	   
