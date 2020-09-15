@@ -2,7 +2,9 @@
 module.exports = (sequelize, Sequelize) => {
   const NameBasic = sequelize.define("name_basics", {
     nconst: {
-      type: Sequelize.STRING(500)
+      type: Sequelize.STRING(100),
+      allowNull: false,
+      unique: true
     },
     primaryName: {
       type: Sequelize.STRING(1000)

@@ -2,7 +2,9 @@
 module.exports = (sequelize, Sequelize) => {
   const Titleakas = sequelize.define("title_akas", {
     titleId: {
-      type: Sequelize.STRING(1000)
+      type: Sequelize.STRING(100),
+      allowNull: false,
+      unique: true
     },
     ordering: {
       type: Sequelize.STRING(1000)
