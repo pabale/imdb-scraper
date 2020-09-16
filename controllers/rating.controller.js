@@ -24,7 +24,6 @@ function insert_rating_data(filename) {
 	 
 	 line_array = line.split('\t');
 
-	   lr.pause();
 	   
 		var rating = {
 		    tconst: line_array[0],
@@ -45,14 +44,14 @@ function insert_rating_data(filename) {
 			  	setTimeout(function () {
 			  	  //dataArray = [];
 			      lr.resume();
-			  	}, 50);
+			  	}, 200);
 		  }
-		  lr.resume();
 	});
 
 	lr.on('end', function () {
 		//console.log(dataArray);
 	  Rating.bulkCreate(dataArray);
+	  console.log(dataArray);
 	});
 }
 
