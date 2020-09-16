@@ -5,7 +5,6 @@ const Op = db.Sequelize.Op;
 var fs = require('fs');
 var LineByLineReader = require('line-by-line');
 
-
 var dataArray = [];
 
 function insert_rating_data(filename) {
@@ -20,7 +19,7 @@ function insert_rating_data(filename) {
 
 	  lineno++;
 
-	  if(lineno%500==0) lr.pause();
+	  if(lineno%100==0) lr.pause();
 	 
 	  line_array = line.split('\t');
 
@@ -43,7 +42,7 @@ function insert_rating_data(filename) {
 
 			  	setTimeout(function () {
 			      lr.resume();
-			  	}, 100);
+			  	}, 150);
 		  }
 	});
 
