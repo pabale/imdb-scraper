@@ -42,7 +42,7 @@ function insert_rating_data(filename) {
 
 			  	setTimeout(function () {
 			      lr.resume();
-			  	}, 400);
+			  	}, 500);
 		  }
 	});
 
