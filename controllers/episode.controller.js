@@ -34,21 +34,16 @@ function insert_episode_data(filename) {
 
 	if(lineno!=1) dataArray.push(episode);
 
-	if(lineno%50000 == 0){
+	if(lineno%400000 == 0){
 	    Episode.bulkCreate(dataArray);
 	    
 	    lr.pause();	   
 	  	setTimeout(function () {
 	  	  dataArray = [];
 	      lr.resume();
-	  	}, 10000);
+	  	}, 55000);
 	 }
-
-		/*if(lineno%100000 == 0) {	   
-		  setTimeout(function () {
-		      lr.resume();
-		  }, 1000);
-		}*/
+	 
 	});
 
 	lr.on('end', function () {
