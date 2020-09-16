@@ -17,10 +17,10 @@ function insert_rating_data(filename) {
 
 	lr.on('line', function (line) {
 	  // pause emitting of lines...
-	 lineno++;
-	 
-		//lr.pause();	
-	 
+
+	  lineno++;
+
+	  if(lineno%500==0) lr.pause();
 	 
 	 line_array = line.split('\t');
 
@@ -34,23 +34,21 @@ function insert_rating_data(filename) {
 		  
 		  if(lineno!=1) dataArray.push(rating);
 
-		  dataArray.push(rating);
 
-		  if(lineno%100000 == 0) {
-		  		//lr.pause();
+		  if(lineno%500 == 0) {
+		  		
 		    	Rating.bulkCreate(dataArray);
+
 		    	dataArray = [];
+
 			  	setTimeout(function () {
-			  	  //dataArray = [];
 			      lr.resume();
-			  	}, 13000);
+			  	}, 5);
 		  }
 	});
 
 	lr.on('end', function () {
-		//console.log(dataArray);
-	  Rating.bulkCreate(dataArray);
-	  console.log(dataArray);
+	  	Rating.bulkCreate(dataArray);
 	});
 }
 

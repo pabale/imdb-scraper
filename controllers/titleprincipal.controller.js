@@ -18,20 +18,20 @@ function insert_title_principal_data(filename) {
 	  // pause emitting of lines...
 	 lineno++;
 	 
-		//lr.pause();	
+	if(lineno%500==0) lr.pause();
 	 
 	 
 	line_array = line.split('\t');
 
 	   
-	var titleprincipal = {
-	    tconst:line_array[0],
-	    ordering:line_array[1],
-	    nconst:line_array[2],
-	    category:line_array[3],
-	    job:line_array[4],
-	    characters:line_array[5],
-  	};
+		var titleprincipal = {
+		    tconst:line_array[0],
+		    ordering:line_array[1],
+		    nconst:line_array[2],
+		    category:line_array[3],
+		    job:line_array[4],
+		    characters:line_array[5],
+	  	};
 
 
 		 if(lineno!=1) dataArray.push(titleprincipal);
@@ -39,13 +39,12 @@ function insert_title_principal_data(filename) {
 		  if(lineno%500 == 0){
 
 		    Titleprincipal.bulkCreate(dataArray);
+		    
 		    dataArray = [];
 
-		    lr.pause();
-
-			 setTimeout(function () {
-			      lr.resume();
-			 }, 10);
+		  	setTimeout(function () {
+		      lr.resume();
+		  	}, 5);
 		  }
 
 		
@@ -54,6 +53,7 @@ function insert_title_principal_data(filename) {
 	lr.on('end', function () {
 		//console.log(dataArray);
 	  Titleprincipal.bulkCreate(dataArray);
+
 	});
 }
 

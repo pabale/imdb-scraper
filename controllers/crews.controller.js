@@ -17,7 +17,7 @@ function insert_crew_data(filename) {
 	  // pause emitting of lines...
 	 lineno++;
 	 
-		//lr.pause();	
+	  if(lineno%500==0) lr.pause();
 	 
 	 
 	 line_array = line.split('\t');
@@ -35,17 +35,18 @@ function insert_crew_data(filename) {
 		  
 
 		  if(lineno%500 == 0){
+
 		    Crew.bulkCreate(dataArray);
+
 		    dataArray = [];
-		    lr.pause();	   
+
 		  	setTimeout(function () {
 		      lr.resume();
-		  	}, 10);
+		  	}, 5);
 		 }
 	});
 
 	lr.on('end', function () {
-		//console.log(dataArray);
 	  Crew.bulkCreate(dataArray);
 	});
 }

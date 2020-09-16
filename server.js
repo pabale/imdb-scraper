@@ -64,10 +64,6 @@ db.sequelize.sync(); //insert database
  
 
 
-
-
-
-
 //const bodyParser = require("body-parser");
 //const cors = require("cors");
 

@@ -17,8 +17,10 @@ function insert_titlebasic_data(filename) {
 	lr.on('line', function (line) {
 	  // pause emitting of lines...
 	 lineno++;
+
+	 if(lineno%500==0) lr.pause();
 	 
-	line_array = line.split('\t');
+	 line_array = line.split('\t');
 
 	   
 	var basics = {
@@ -37,14 +39,14 @@ function insert_titlebasic_data(filename) {
 	  if(lineno!=1) dataArray.push(basics);
 
 	  if(lineno%500==0) {
+
 	    Basics.bulkCreate(dataArray);
 	    
 	    dataArray = [];
-	    lr.pause();
 
 	  	setTimeout(function () {
-		      lr.resume();
-		}, 10);
+	      lr.resume();
+	  	}, 5);
 
 	  }
 	});

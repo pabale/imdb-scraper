@@ -17,7 +17,7 @@ function insert_episode_data(filename) {
 	  // pause emitting of lines...
 	 lineno++;
 	 
-		//lr.pause();	
+	if(lineno%500 == 0) lr.pause();	
 	 
 	 
 	 line_array = line.split('\t');
@@ -35,14 +35,14 @@ function insert_episode_data(filename) {
 	if(lineno!=1) dataArray.push(episode);
 
 	if(lineno%500 == 0){
-	    Episode.bulkCreate(dataArray);
-	    dataArray = [];
 
-	    lr.pause();	   
+	    Episode.bulkCreate(dataArray);
+
+	  	dataArray = [];
+
 	  	setTimeout(function () {
-	  	  
 	      lr.resume();
-	  	}, 10);
+	  	}, 5);
 	 }
 
 	});

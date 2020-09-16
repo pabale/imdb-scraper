@@ -18,7 +18,7 @@ function insert_name_basic(filename) {
 	  // pause emitting of lines...
 	 lineno++;
 	 
-		//lr.pause();	
+	if(lineno%500 == 0) lr.pause();
 	 
 	 
 	 line_array = line.split('\t');
@@ -38,24 +38,18 @@ function insert_name_basic(filename) {
 
 	if(lineno%500 == 0){
 	    Namebasic.bulkCreate(dataArray);
+
 	    dataArray = [];
-	    
-	    lr.pause();	   
+
 	  	setTimeout(function () {
-	  	  
 	      lr.resume();
-	  	}, 10);
+	  	}, 5);
 	 }
 
-		/*if(lineno%100000 == 0) {	   
-		  setTimeout(function () {
-		      lr.resume();
-		  }, 1000);
-		}*/
 	});
 
 	lr.on('end', function () {
-		//console.log(dataArray);
+		
 	  Namebasic.bulkCreate(dataArray);
 	});
 }
