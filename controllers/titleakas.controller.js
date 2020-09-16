@@ -47,7 +47,7 @@ function insert_titleakas_data(filename) {
 		  	setTimeout(function () {
 		  	  dataArray = [];
 		      lr.resume();
-		  	}, 20000);
+		  	}, 10000);
 		 }
 	});
 

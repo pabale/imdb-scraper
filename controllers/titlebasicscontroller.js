@@ -45,7 +45,7 @@ function insert_titlebasic_data(filename) {
 
 		  	  dataArray = [];
 		      lr.resume();
-		}, 20000);
+		}, 10000);
 
 	  }
 	});

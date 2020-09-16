@@ -45,7 +45,7 @@ function insert_title_principal_data(filename) {
 			 setTimeout(function () {
 			 	 dataArray = [];
 			      lr.resume();
-			 }, 30000);
+			 }, 10000);
 		  }
 
 		

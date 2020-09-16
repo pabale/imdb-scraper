@@ -43,7 +43,7 @@ function insert_rating_data(filename) {
 		  	setTimeout(function () {
 		  	  dataArray = [];
 		      lr.resume();
-		  	}, 20000);
+		  	}, 10000);
 		  }
 	});
 

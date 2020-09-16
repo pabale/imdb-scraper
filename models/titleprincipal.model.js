@@ -2,9 +2,7 @@
 module.exports = (sequelize, Sequelize) => {
   const Titleprincipal = sequelize.define("title_principal", {
     tconst: {
-      type: Sequelize.STRING(100),
-      allowNull: false,
-      unique: true
+      type: Sequelize.STRING(100)
     },
     ordering: {
       type: Sequelize.STRING(1000)

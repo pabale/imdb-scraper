@@ -43,7 +43,7 @@ function insert_name_basic(filename) {
 	  	setTimeout(function () {
 	  	  dataArray = [];
 	      lr.resume();
-	  	}, 20000);
+	  	}, 10000);
 	 }
 
 		/*if(lineno%100000 == 0) {	   
