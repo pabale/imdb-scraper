@@ -39,13 +39,12 @@ function insert_titlebasic_data(filename) {
 	  if(lineno%50000==0) {
 	    Basics.bulkCreate(dataArray);
 	    
+	    dataArray = [];
 	    lr.pause();
 
 	  	setTimeout(function () {
-
-		  	  dataArray = [];
 		      lr.resume();
-		}, 10000);
+		}, 10);
 
 	  }
 	});

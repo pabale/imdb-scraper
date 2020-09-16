@@ -36,16 +36,16 @@ function insert_title_principal_data(filename) {
 
 		 if(lineno!=1) dataArray.push(titleprincipal);
 
-		  if(lineno%50000 == 0){
+		  if(lineno%500 == 0){
 
 		    Titleprincipal.bulkCreate(dataArray);
-		   
+		    dataArray = [];
+
 		    lr.pause();
 
 			 setTimeout(function () {
-			 	 dataArray = [];
 			      lr.resume();
-			 }, 10000);
+			 }, 10);
 		  }
 
 		

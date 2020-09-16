@@ -34,16 +34,16 @@ function insert_rating_data(filename) {
 		  
 		  if(lineno!=1) dataArray.push(rating);
 
-		  if(lineno%400000 == 0){
+		  if(lineno%500 == 0){
 		    Rating.bulkCreate(dataArray);
 		    dataArray = [];
 
 		    lr.pause();	   
 
 		  	setTimeout(function () {
-		  	  dataArray = [];
+		  	  //dataArray = [];
 		      lr.resume();
-		  	}, 450000);
+		  	}, 1);
 		  }
 	});
 
