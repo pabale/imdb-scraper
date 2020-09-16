@@ -32,18 +32,18 @@ function insert_rating_data(filename) {
 		};
 
 		  
-		  //if(lineno!=1) dataArray.push(rating);
+		  if(lineno!=1) dataArray.push(rating);
 
 		  dataArray.push(rating);
 
-		  if(lineno%100 == 0) {
-		  		lr.pause();
+		  if(lineno%100000 == 0) {
+		  		//lr.pause();
 		    	Rating.bulkCreate(dataArray);
 		    	dataArray = [];
 			  	setTimeout(function () {
 			  	  //dataArray = [];
 			      lr.resume();
-			  	}, 300);
+			  	}, 13000);
 		  }
 	});
 
