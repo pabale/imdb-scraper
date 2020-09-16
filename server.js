@@ -11,12 +11,12 @@ db.sequelize.sync(); //insert database
 
 
 
-function file_chunk(filename) 
+/*function file_chunk(filename) 
 {
 	  var stream;
-	  var file = './tsvfile/'+filename;
+	  var file = './tsvfile/'+filename+'.tsv';
 	  var linesCount = 0;
-	  /*var i=1;
+	  var i=1;
 
 	  var dir = './xyz/'+filename;
 	  var dir1 = './xyz/';
@@ -32,7 +32,7 @@ function file_chunk(filename)
 
 		if (!fs.existsSync(dir1)){
 	    	fs.mkdirSync(dir1);
-		}*/
+		}
 	  
 	  var rl = readline.createInterface({
 	      input: fs.createReadStream(file),
@@ -41,11 +41,11 @@ function file_chunk(filename)
 	  });
 
 	  
-	 /* stream = fs.createWriteStream(dir+"/"+filename+"1.txt");*/
+	  stream = fs.createWriteStream(dir+"/"+filename+"1.txt");
 	  rl.on('line', function (line) {
 	      linesCount++; // on each linebreak, add +1 to 'linesCount'
 	      
-	      /*if(linesCount%400000==0) {
+	      if(linesCount%400000==0) {
 	        stream.write(line);
 	        i++;
 	        //console.log(filename+" : "+i); 
@@ -53,22 +53,14 @@ function file_chunk(filename)
 	        stream = fs.createWriteStream(dir+"/"+filename+i+".txt");
 	      }else{
 	        stream.write(line+"\r\n");  
-	      }*/
+	      }
 	  });
 
 	  rl.on('close', function () {
-	    //stream.end();
+	    stream.end();
 	    console.log(filename+" : "+linesCount)
 	  }); 
-}
-
-file_chunk('name.basics.tsv');
-file_chunk('title.akas.tsv');
-file_chunk('title.basics.tsv');
-file_chunk('title.crew.tsv');
-file_chunk('title.episode.tsv');
-file_chunk('title.principals.tsv');
-file_chunk('title.ratings.tsv');
+}*/
  
 
 
