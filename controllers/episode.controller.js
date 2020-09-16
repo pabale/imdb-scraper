@@ -41,7 +41,7 @@ function insert_episode_data(filename) {
 	  	setTimeout(function () {
 	  	  dataArray = [];
 	      lr.resume();
-	  	}, 2);
+	  	}, 50);
 	 }
 
 	});
