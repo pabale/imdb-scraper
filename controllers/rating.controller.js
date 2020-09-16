@@ -36,15 +36,14 @@ function insert_rating_data(filename) {
 
 		  dataArray.push(rating);
 
-		  if(lineno%100 == 0){
-
+		  if(lineno%100 == 0) {
 		  		lr.pause();
 		    	Rating.bulkCreate(dataArray);
 		    	dataArray = [];
 			  	setTimeout(function () {
 			  	  //dataArray = [];
 			      lr.resume();
-			  	}, 200);
+			  	}, 300);
 		  }
 	});
 
