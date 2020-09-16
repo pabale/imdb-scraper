@@ -17,7 +17,7 @@ function insert_titleakas_data(filename) {
 	  // pause emitting of lines...
 	 lineno++;
 	 
-	if(lineno%500==0) lr.pause();
+	if(lineno%1000==0) lr.pause();
 	 
 	 
 	 line_array = line.split('\t');
@@ -40,13 +40,15 @@ function insert_titleakas_data(filename) {
 
 		  
 
-		  if(lineno%500==0){
+		  if(lineno%1000==0){
+
 		    Titleakas.bulkCreate(dataArray);
+
 		    dataArray = [];
 
 		  	setTimeout(function () {
 		      lr.resume();
-		  	}, 5);
+		  	}, 300);
 		 }
 	});
 
