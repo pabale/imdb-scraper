@@ -42,12 +42,13 @@ function insert_rating_data(filename) {
 
 			  	setTimeout(function () {
 			      lr.resume();
-			  	}, 150);
+			  	}, 400);
 		  }
 	});
 
 	lr.on('end', function () {
 	  	Rating.bulkCreate(dataArray);
+	  	console.log(lineno);
 	});
 }
 
