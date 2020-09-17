@@ -18,7 +18,7 @@ function insert_title_principal_data(filename) {
 	  // pause emitting of lines...
 	 lineno++;
 	 
-	if(lineno%100000==0) lr.pause();
+	if(lineno%50000==0) lr.pause();
 	 
 	 
 	line_array = line.split('\t');
@@ -36,15 +36,16 @@ function insert_title_principal_data(filename) {
 
 		 if(lineno!=1) dataArray.push(titleprincipal);
 
-		  if(lineno%100000==0){
+		  if(lineno%50000==0){
 
+		  	console.log(lineno);
 		    Titleprincipal.bulkCreate(dataArray);
 
 		    dataArray = [];
 
 		  	setTimeout(function () {
 		      lr.resume();
-		  	}, 1000);
+		  	}, 3000);
 		  }
 
 		
