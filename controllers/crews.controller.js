@@ -17,7 +17,7 @@ function insert_crew_data(filename) {
 	  // pause emitting of lines...
 	 lineno++;
 	 
-	  if(lineno%100==0) lr.pause();
+	  if(lineno%100000==0) lr.pause();
 	 
 	 
 	 line_array = line.split('\t');
@@ -34,7 +34,7 @@ function insert_crew_data(filename) {
 
 		  
 
-		  if(lineno%100==0){
+		  if(lineno%100000==0){
 
 		    Crew.bulkCreate(dataArray);
 

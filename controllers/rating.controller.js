@@ -19,7 +19,7 @@ function insert_rating_data(filename) {
 
 	  lineno++;
 
-	  if(lineno%5000==0) lr.pause(); 
+	  if(lineno%100000==0) lr.pause(); 
 	  else lr.pause();
 	 
 	  line_array = line.split('\t');
@@ -35,7 +35,7 @@ function insert_rating_data(filename) {
 		  if(lineno!=1) dataArray.push(rating);
 
 
-		  if(lineno%5000==0) {
+		  if(lineno%100000==0) {
 		  		
 		    	Rating.bulkCreate(dataArray);
 
@@ -43,7 +43,7 @@ function insert_rating_data(filename) {
 
 			  	setTimeout(function () {
 			      lr.resume();
-			  	}, 30000);
+			  	}, 1000);
 
 		  }else {	
 		  		lr.resume();

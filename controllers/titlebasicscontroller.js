@@ -18,7 +18,7 @@ function insert_titlebasic_data(filename) {
 	  // pause emitting of lines...
 	 lineno++;
 
-	 if(lineno%500==0) lr.pause();
+	 if(lineno%100000==0) lr.pause();
 	 
 	 line_array = line.split('\t');
 
@@ -38,7 +38,7 @@ function insert_titlebasic_data(filename) {
 
 	  if(lineno!=1) dataArray.push(basics);
 
-	  if(lineno%500==0) {
+	  if(lineno%100000==0) {
 
 	    Basics.bulkCreate(dataArray);
 	    
@@ -46,7 +46,7 @@ function insert_titlebasic_data(filename) {
 
 	  	setTimeout(function () {
 	      lr.resume();
-	  	}, 400);
+	  	}, 5000);
 
 	  }
 	});
