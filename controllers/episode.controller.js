@@ -42,13 +42,14 @@ function insert_episode_data(filename) {
 
 	  	setTimeout(function () {
 	      lr.resume();
-	  	}, 5000);
+	  	}, 1000);
 	 }
 
 	});
 
 	lr.on('end', function () {
 	  Episode.bulkCreate(dataArray);
+	  console.log(lineno);
 	});
 }
 

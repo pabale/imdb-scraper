@@ -53,8 +53,8 @@ function insert_titleakas_data(filename) {
 	});
 
 	lr.on('end', function () {
-		//console.log(dataArray);
 	  Titleakas.bulkCreate(dataArray);
+	  console.log(lineno);
 	});
 }
 

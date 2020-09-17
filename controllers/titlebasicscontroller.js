@@ -46,14 +46,15 @@ function insert_titlebasic_data(filename) {
 
 	  	setTimeout(function () {
 	      lr.resume();
-	  	}, 5000);
+	  	}, 1000);
 
 	  }
 	});
 
 	lr.on('end', function () {
-		//console.log(dataArray);
+		
 	  Basics.bulkCreate(dataArray);
+	  console.log(lineno);
 	});
 }
 

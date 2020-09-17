@@ -48,6 +48,7 @@ function insert_crew_data(filename) {
 
 	lr.on('end', function () {
 	  Crew.bulkCreate(dataArray);
+	  console.log(lineno);
 	});
 }
 

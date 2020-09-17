@@ -43,7 +43,7 @@ function insert_name_basic(filename) {
 
 	  	setTimeout(function () {
 	      lr.resume();
-	  	}, 5000);
+	  	}, 1000);
 	 }
 
 	});
@@ -51,6 +51,7 @@ function insert_name_basic(filename) {
 	lr.on('end', function () {
 		
 	  Namebasic.bulkCreate(dataArray);
+	  console.log(lineno);
 	});
 }
 

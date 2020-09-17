@@ -14,7 +14,7 @@ function insert_title_principal_data(filename) {
     
     var lineno=0;
 
-	lr.on('line', async function (line) {
+	lr.on('line', function (line) {
 	  // pause emitting of lines...
 	 lineno++;
 	 
@@ -51,9 +51,8 @@ function insert_title_principal_data(filename) {
 	});
 
 	lr.on('end', function () {
-		//console.log(dataArray);
 	  Titleprincipal.bulkCreate(dataArray);
-
+	  console.log(lineno);
 	});
 }
 
