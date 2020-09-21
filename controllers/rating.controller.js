@@ -18,7 +18,7 @@ var dataArray = [];
 
 function insert_rating_data(filename) {
 
-	var file = '../tsvfile/'+filename;
+	var file = path+filename;
 	
     var lr = new LineByLineReader(file);
     
