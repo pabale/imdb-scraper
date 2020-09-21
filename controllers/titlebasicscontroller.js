@@ -8,7 +8,7 @@ const gunzip = require('gunzip-file');
 const http = require('https');
 
 var fs = require('fs');
-const path='../tsvfile/';
+const path='./tsvfile/';
 const file = fs.createWriteStream(path+"title.basics.tsv.gz");
 var LineByLineReader = require('line-by-line');
 
@@ -16,7 +16,7 @@ var dataArray = [];
 
 function insert_titlebasic_data(filename) {
 
-	var file = '../tsvfile/'+filename;
+	var file = path+filename;
     var lr = new LineByLineReader(file);
     
     var lineno=0;
