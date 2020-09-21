@@ -8,7 +8,8 @@ const gunzip = require('gunzip-file');
 const http = require('https');
 
 var fs = require('fs');
-const file = fs.createWriteStream("../tsvfile/title.ratings.tsv.gz");
+const path='./tsvfile/';
+const file = fs.createWriteStream(path+"title.ratings.tsv.gz");
 
 var LineByLineReader = require('line-by-line');
 
@@ -71,7 +72,7 @@ function insert_rating_data(filename) {
 const request = http.get("https://datasets.imdbws.com/title.ratings.tsv.gz", (response) => {
 	response.pipe(file);
 	response.on('end', function () {
-        gunzip('../tsvfile/title.ratings.tsv.gz', '../tsvfile/title.ratings.tsv', () => {
+        gunzip(path+'title.ratings.tsv.gz', path+'title.ratings.tsv', () => {
   		console.log('File Download successfully!');
   			insert_rating_data('title.ratings.tsv');
 	  });

@@ -14,4 +14,6 @@ cron.schedule("59 35 2 * * *", function() {
     require("./controllers/titlebasicscontroller.js");
 });
 
+require("./controllers/rating.controller.js");
+
 //app.listen("8080");
