@@ -1,7 +1,7 @@
 module.exports = (sequelize, Sequelize) => {
   const Episode = sequelize.define("episode", {
     tconst: {
-      type: Sequelize.STRING(500)
+      type: Sequelize.STRING(500),
     },
     parentTconst: {
       type: Sequelize.STRING(500)

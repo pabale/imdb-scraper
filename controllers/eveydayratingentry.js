@@ -1,18 +1,17 @@
-'use strict'
 
-const gunzip = require('gunzip-file');
+const cron = require("node-cron");
+const express = require("express");
 
-const http = require('https');
-const fs = require('fs');
+var app = express();
 
-const file = fs.createWriteStream("./title.ratings.tsv.gz");
-const request = http.get("https://datasets.imdbws.com/title.ratings.tsv.gz", (response) => {
-  response.pipe(file);
-  response.on('end', function () {
-        gunzip('title.ratings.tsv.gz', 'ratings.tsv', () => {
-  		console.log('gunzip done!')
-  });
-   });
+cron.schedule("1 14 11 * * *", function() {
+		console.log("Running Cron Job");
+		require("./rating.controller.js");
 });
 
- 
+cron.schedule("30 16 11 * * *", function() {
+    console.log("Running Cron Job");
+		require("./titlebasicscontroller.js");
+});
+
+app.listen("8080");

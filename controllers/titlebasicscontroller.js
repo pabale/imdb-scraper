@@ -1,8 +1,14 @@
+'use strict'
+
 const db = require("../models");
 const Basics = db.titlebasic;
 const Op = db.Sequelize.Op;
 
+const gunzip = require('gunzip-file');
+const http = require('https');
+
 var fs = require('fs');
+const file = fs.createWriteStream("../tsvfile/title.basics.tsv.gz");
 var LineByLineReader = require('line-by-line');
 
 var dataArray = [];
@@ -10,7 +16,7 @@ var dataArray = [];
 function insert_titlebasic_data(filename) {
 
 	var file = '../tsvfile/'+filename;
-    lr = new LineByLineReader(file);
+    var lr = new LineByLineReader(file);
     
     var lineno=0;
 
@@ -18,9 +24,9 @@ function insert_titlebasic_data(filename) {
 	  // pause emitting of lines...
 	 lineno++;
 
-	 if(lineno%100000==0) lr.pause();
+	 if(lineno%500==0) lr.pause();
 	 
-	 line_array = line.split('\t');
+	 var line_array = line.split('\t');
 
 	   
 	var basics = {
@@ -38,29 +44,40 @@ function insert_titlebasic_data(filename) {
 
 	  if(lineno!=1) dataArray.push(basics);
 
-	  if(lineno%100000==0) {
+	  if(lineno%500==0) {
 
-	    Basics.bulkCreate(dataArray);
+	    //Basics.bulkCreate(dataArray);
+	    Basics.bulkCreate(dataArray, {
+		   	updateOnDuplicate: ["tconst"] 
+    	});
 	    
 	    dataArray = [];
 
 	  	setTimeout(function () {
 	      lr.resume();
-	  	}, 1000);
+	  	}, 400);
 
 	  }
 	});
 
 	lr.on('end', function () {
-		
-	  Basics.bulkCreate(dataArray);
-	  console.log(lineno);
+	  Basics.bulkCreate(dataArray, {
+		   	updateOnDuplicate: ["tconst"] 
+    	});
 	});
 }
 
-insert_titlebasic_data('title.basics.tsv');
+
+const request = http.get("https://datasets.imdbws.com/title.basics.tsv.gz", (response) => {
+	response.pipe(file);
+	response.on('end', function () {
+        gunzip('../tsvfile/title.basics.tsv.gz', '../tsvfile/title.basics.tsv', () => {
+  		console.log('File Download successfully!');
+  			insert_titlebasic_data('title.basics.tsv');
+	  });
+   });
+});
 
 
-/* save crew data*/
 
 module.exports = { insert_titlebasic_data }
