@@ -9,6 +9,7 @@ const http = require('https');
 
 var fs = require('fs');
 const file = fs.createWriteStream("../tsvfile/title.ratings.tsv.gz");
+
 var LineByLineReader = require('line-by-line');
 
 
