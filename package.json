@@ -12,6 +12,7 @@
     "bluebird": "^3.7.2",
     "cheerio": "^1.0.0-rc.3",
     "express": "^4.17.1",
+    "forever": "^3.0.2",
     "fs": "0.0.1-security",
     "gunzip-file": "^0.1.1",
     "https": "^1.0.0",
