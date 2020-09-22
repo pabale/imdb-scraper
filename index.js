@@ -3,14 +3,17 @@ const cron = require("node-cron");
 const express = require("express");
 
 var app = express();
+var datetime;
 
-cron.schedule("1 46 21 * * *", function() {
-    console.log("Running Cron Job1");
+cron.schedule("1 1 1 * * *", function() {
+    datetime = new Date();
+    console.log(datetime);
     require("./controllers/rating.controller.js");
 });
 
-cron.schedule("1 46 21 * * *", function() {
-    console.log("Running Cron Job2");
+cron.schedule("1 30 1 * * *", function() {
+    datetime = new Date();
+    console.log(datetime);
     require("./controllers/titlebasicscontroller.js");
 });
 
