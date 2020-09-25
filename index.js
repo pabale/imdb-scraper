@@ -4,12 +4,14 @@ const express = require("express");
 
 //var app = express();
 
-cron.schedule("1 40 10 * * *", function() {
+cron.schedule("1 1 1 * * *", function() {
     require("./controllers/rating.controller.js");
 });
 
-cron.schedule("1 45 10 * * *", function() {
+cron.schedule("1 40 7 * * *", function() {
+    console.log('start');
     require("./controllers/titlebasicscontroller.js");
+    console.log('end');
 });
 
 //require("./controllers/rating.controller.js");
